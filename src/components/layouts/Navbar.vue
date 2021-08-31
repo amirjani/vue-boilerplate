@@ -8,38 +8,38 @@
       right-0
       h-14
       bg-workbench
-      border-b border-primary
+      border-b border-purple-divider
       flex flex-row
       items-center
       justify-between
       px-5
     "
   >
-    <h3 class="text-sm font-bold primary-text">Welcome, Amir</h3>
+    <h3 class="text-sm font-bold text-yellow">Welcome, Amirhossein</h3>
     <div class="flex items-center">
-
       <div
         class="
           relative
           flex
           justify-center
           items-center
-          w-6
-          h-6
+          w-8
+          h-8
           rounded-full
-          bg-highlight
+          bg-blue-primary
+          hover:bg-blue-highlight
         "
       >
-        <bell-icon-s class="w-3.5 h-3.5 text-gray-600" />
+        <BellIcon class="w-4 h-4 text-yellow" />
         <div
-          class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-error rounded-full"
+          class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-yellow rounded-full"
         />
       </div>
       <dropdown class="ml-3" origin="right" body-class="top-8">
         <img
           src="@/assets/avatar.jpeg"
           alt="Avatar"
-          class="w-6 h-6 rounded-full"
+          class="w-8 h-8 rounded-full border-yellow border-2"
         />
         <template #body>
           <ul>
@@ -49,7 +49,7 @@
                 py-2
                 cursor-pointer
                 primary-text
-                hover:bg-primary hover:bg-highlight
+                hover:bg-blue-highlight
               "
             >
               Profile
@@ -60,7 +60,7 @@
                 py-2
                 cursor-pointer
                 primary-text
-                hover:bg-primary hover:bg-highlight
+                hover:bg-blue-highlight
               "
             >
               Account settings
@@ -71,7 +71,7 @@
                 py-2
                 cursor-pointer
                 primary-text
-                hover:bg-primary hover:bg-highlight
+                hover:bg-blue-highlight
               "
             >
               Sign out
@@ -85,10 +85,13 @@
 
 <script>
 import Dropdown from "@/components/Dropdown.vue";
+import { BellIcon } from "@heroicons/vue/outline";
+
 export default {
   name: "Navbar",
   components: {
     Dropdown,
+    BellIcon,
   },
   methods: {
     viewSource() {

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="px-5 flex items-center py-3 cursor-default"
-    :class="{ active: activeMenu, 'group hover:bg-primary': !activeMenu }"
+    class="px-5 flex items-center py-3 cursor-pointer"
+    :class="{ active: activeMenu, 'group hover:bg-blue-primary': !activeMenu }"
     @click="onClick"
   >
     <component
@@ -10,15 +10,15 @@
       class="icon w-5 h-5 primary-text group-hover:secondary-text"
       :class="iconClass"
     />
-    <div class="pl-4 flex-grow flex items-center justify-between">
+    <div class="pl-4 my-1 flex-grow flex items-center justify-between">
       <div
-        class="text text-sm primary-text font-medium group-hover:primary-text"
+        class="text text-sm text-white font-medium group-hover:text-white-100"
       >
         {{ text }}
       </div>
-      <chevron-down-icon-s
+      <ChevronDownIcon
         v-if="subMenuExists"
-        class="w-5 h-5 text-highlight-text transform transition duration-100"
+        class="w-5 h-5 text-white transform transition duration-100"
         :class="{ 'rotate-180': showSubMenu }"
       />
     </div>
@@ -35,8 +35,13 @@
 <script>
 import * as HeroIconsOutline from "@heroicons/vue/outline";
 import * as HeroIconsSolid from "@heroicons/vue/solid";
+import { ChevronDownIcon } from "@heroicons/vue/solid";
+
 import { pascalCase } from "change-case";
 export default {
+  components: {
+    ChevronDownIcon,
+  },
   name: "SidebarMenuItem",
   props: {
     text: {
@@ -81,11 +86,12 @@ export default {
     $route: {
       immediate: true,
       handler(val) {
-        if (val.name == this.route?.name || val.path == this.route?.path) {
-          this.activeMenu = true;
-        } else {
-          this.activeMenu = false;
-        }
+        this.activeMenu.true;
+        // if (val.name == this.route?.name || val.path == this.route?.path) {
+        //   this.activeMenu = true;
+        // } else {
+        //   this.activeMenu = false;
+        // }
       },
     },
   },
@@ -122,10 +128,10 @@ export default {
 
 <style scoped>
 .active {
-  @apply border-indigo-900;
+  @apply border-blue-highlight;
 }
 .active .icon,
 .active .text {
-  @apply text-gray-50;
+  @apply text-white;
 }
 </style>

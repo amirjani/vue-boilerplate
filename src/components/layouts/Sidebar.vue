@@ -9,16 +9,16 @@
       w-16
       h-16
       rounded-full
-      bg-gray-900
+      bg-purple-buttons
       lg:hidden
     "
   >
-    <menu-alt-4-icon-s
+    <MenuAlt1Icon
       class="btn-toggle"
       :class="{ 'opacity-0': showSidebar }"
       @click="toggleSidebar"
     />
-    <x-icon-s
+    <MenuIcon
       class="btn-toggle"
       :class="{ 'opacity-0': !showSidebar }"
       @click="toggleSidebar"
@@ -26,7 +26,7 @@
   </button>
   <!-- Overlay -->
   <div
-    class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden"
+    class="fixed inset-0 bg-blue-primary bg-opacity-25 z-30 lg:hidden"
     :class="{ hidden: !showSidebar }"
     @click="showSidebar = false"
   ></div>
@@ -39,18 +39,18 @@
       right-24
       lg:right-auto lg:w-64
       h-screen
-      border-r border-primary
+      border-r border-purple-divider
       overflow-y-auto
-      bg-workbench
+      bg-blue-secondary
     "
     :class="{ hidden: allowSidebarHide && !showSidebar }"
   >
     <!-- Header -->
     <header class="flex items-center pt-10 px-5">
-      <img src="@/assets/avatar.jpeg" alt="Logo" class="w-10" />
+      <img src="@/assets/avatar.jpeg" alt="Logo" class="w-20 rounded-full" />
       <div class="ml-2 flex flex-col">
-        <h1 class="text-sm primary-text font-medium">Amirhossein Jani</h1>
-        <p class="secondary-text text-xs">Super Admin</p>
+        <h1 class="text-sm text-white font-medium">Amirhossein Jani</h1>
+        <p class="text-green text-xs">Super Admin</p>
       </div>
     </header>
     <!-- Menu -->
@@ -97,20 +97,21 @@
 </template>
 
 <script>
-// import MenuHeader from "@/components/layouts/SidebarMenuHeader.vue";
 import MenuItem from "@/components/layouts/SidebarMenuItem.vue";
 import MenuItemSub from "@/components/layouts/SidebarMenuItemSub.vue";
-// import MenuItemSubHeader from "@/components/layouts/SidebarMenuItemSubHeader.vue";
 import { vueWindowSizeMixin } from "vue-window-size/option-api";
+import { MenuAlt1Icon } from "@heroicons/vue/outline";
+import { MenuIcon } from "@heroicons/vue/outline";
+
 export default {
   name: "Sidebar",
   mixins: [vueWindowSizeMixin()],
   emits: ["visibility-change"],
   components: {
-    // MenuHeader,
     MenuItem,
     MenuItemSub,
-    // MenuItemSubHeader,
+    MenuAlt1Icon,
+    MenuIcon
   },
   data() {
     return {
