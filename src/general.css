@@ -1,0 +1,40 @@
+body {
+    background: #1d2433;
+}
+
+.bg-workbench {
+    background: #171c28;
+}
+
+.bg-primary {
+    background: #1d2433;
+}
+
+.bg-icon {
+    background: #ffcc66
+}
+
+.bg-highlight {
+    background: #bae67e;
+}
+
+.border-primary {
+    border-color: #1d2433;
+}
+
+.primary-text {
+    color: #d7dce2
+}
+
+.secondary-text {
+    color: #ffcc66
+}
+
+.highlight-text {
+    color: #bae67e
+}
+
+.bg-error {
+    background: #ef6b73
+}
+
